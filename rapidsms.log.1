@@ -1,0 +1,96 @@
+[django.db.backends]: (0.000) SELECT "rapidsms_backend"."name" FROM "rapidsms_backend"; args=()
+[django.db.backends]: (0.000) INSERT INTO "rapidsms_backend" ("name") VALUES (message_tester); args=('message_tester',)
+[django.db.backends]: (0.001) SELECT "rapidsms_backend"."name" FROM "rapidsms_backend"; args=()
+[django.db.backends]: (0.001) INSERT INTO "rapidsms_backend" ("name") VALUES (message_tester); args=('message_tester',)
+[django.db.backends]: (0.000) SELECT "rapidsms_app"."module" FROM "rapidsms_app"; args=()
+[django.db.backends]: (0.000) INSERT INTO "rapidsms_app" ("module", "active") VALUES (django_nose, False); args=('django_nose', False)
+[django.db.backends]: (0.000) INSERT INTO "rapidsms_app" ("module", "active") VALUES (djtables, False); args=('djtables', False)
+[django.db.backends]: (0.000) INSERT INTO "rapidsms_app" ("module", "active") VALUES (rapidsms, False); args=('rapidsms', False)
+[django.db.backends]: (0.000) INSERT INTO "rapidsms_app" ("module", "active") VALUES (rapidsms.contrib.handlers, False); args=('rapidsms.contrib.handlers', False)
+[django.db.backends]: (0.000) INSERT INTO "rapidsms_app" ("module", "active") VALUES (rapidsms.contrib.ajax, False); args=('rapidsms.contrib.ajax', False)
+[django.db.backends]: (0.000) INSERT INTO "rapidsms_app" ("module", "active") VALUES (django.contrib.sites, False); args=('django.contrib.sites', False)
+[django.db.backends]: (0.000) INSERT INTO "rapidsms_app" ("module", "active") VALUES (django.contrib.auth, False); args=('django.contrib.auth', False)
+[django.db.backends]: (0.000) INSERT INTO "rapidsms_app" ("module", "active") VALUES (django.contrib.admin, False); args=('django.contrib.admin', False)
+[django.db.backends]: (0.000) INSERT INTO "rapidsms_app" ("module", "active") VALUES (django.contrib.sessions, False); args=('django.contrib.sessions', False)
+[django.db.backends]: (0.000) INSERT INTO "rapidsms_app" ("module", "active") VALUES (django.contrib.contenttypes, False); args=('django.contrib.contenttypes', False)
+[django.db.backends]: (0.000) INSERT INTO "rapidsms_app" ("module", "active") VALUES (rapidsms.contrib.default, False); args=('rapidsms.contrib.default', False)
+[django.db.backends]: (0.000) INSERT INTO "rapidsms_app" ("module", "active") VALUES (rapidsms.contrib.export, False); args=('rapidsms.contrib.export', False)
+[django.db.backends]: (0.000) INSERT INTO "rapidsms_app" ("module", "active") VALUES (rapidsms.contrib.httptester, False); args=('rapidsms.contrib.httptester', False)
+[django.db.backends]: (0.000) INSERT INTO "rapidsms_app" ("module", "active") VALUES (rapidsms.contrib.locations, False); args=('rapidsms.contrib.locations', False)
+[django.db.backends]: (0.000) INSERT INTO "rapidsms_app" ("module", "active") VALUES (rapidsms.contrib.messagelog, False); args=('rapidsms.contrib.messagelog', False)
+[django.db.backends]: (0.000) INSERT INTO "rapidsms_app" ("module", "active") VALUES (rapidsms.contrib.messaging, False); args=('rapidsms.contrib.messaging', False)
+[django.db.backends]: (0.000) INSERT INTO "rapidsms_app" ("module", "active") VALUES (rapidsms.contrib.registration, False); args=('rapidsms.contrib.registration', False)
+[django.db.backends]: (0.000) INSERT INTO "rapidsms_app" ("module", "active") VALUES (rapidsms.contrib.scheduler, False); args=('rapidsms.contrib.scheduler', False)
+[django.db.backends]: (0.000) INSERT INTO "rapidsms_app" ("module", "active") VALUES (rapidsms.contrib.echo, False); args=('rapidsms.contrib.echo', False)
+[router]: Starting RapidSMS...
+[router]: starting backend
+[app/handlers]: Registered: LanguageHandler, RegisterHandler, EchoHandler, PingHandler
+[router]: Started
+[django.db.backends]: (0.001) SELECT "scheduler_eventschedule"."id", "scheduler_eventschedule"."callback", "scheduler_eventschedule"."description", "scheduler_eventschedule"."callback_args", "scheduler_eventschedule"."callback_kwargs", "scheduler_eventschedule"."months", "scheduler_eventschedule"."days_of_month", "scheduler_eventschedule"."days_of_week", "scheduler_eventschedule"."hours", "scheduler_eventschedule"."minutes", "scheduler_eventschedule"."start_time", "scheduler_eventschedule"."end_time", "scheduler_eventschedule"."count", "scheduler_eventschedule"."active" FROM "scheduler_eventschedule" WHERE "scheduler_eventschedule"."active" = True ; args=(True,)
+[app/ajax]: Calling App.ajax_GET_log with args: [{}]
+[app/ajax]: Response: []
+[app/ajax]: Calling App.ajax_POST_send with args: [{}, {'text': u'test', 'identity': u'506293'}]
+[django.db.backends]: (0.001) SELECT "rapidsms_backend"."id", "rapidsms_backend"."name" FROM "rapidsms_backend" WHERE "rapidsms_backend"."name" = message_tester ; args=('message_tester',)
+[django.db.backends]: (0.000) SELECT "rapidsms_connection"."id", "rapidsms_connection"."backend_id", "rapidsms_connection"."identity", "rapidsms_connection"."contact_id" FROM "rapidsms_connection" WHERE ("rapidsms_connection"."identity" = 506293  AND "rapidsms_connection"."backend_id" = 1 ); args=(u'506293', 1)
+[django.db.backends]: (0.000) INSERT INTO "rapidsms_connection" ("backend_id", "identity", "contact_id") VALUES (1, 506293, None); args=(1, u'506293', None)
+[router]: Incoming (506293 via message_tester): test
+[router]: In filter phase
+[router]: In <app: handlers> app
+[router]: In <app: ajax> app
+[router]: In <app: default> app
+[router]: In <app: httptester> app
+[router]: In <app: locations> app
+[router]: In <app: messagelog> app
+[router]: In <app: messaging> app
+[router]: In <app: scheduler> app
+[router]: In parse phase
+[router]: In <app: handlers> app
+[router]: In <app: ajax> app
+[router]: In <app: default> app
+[router]: In <app: httptester> app
+[router]: In <app: locations> app
+[router]: In <app: messagelog> app
+[django.db.backends]: (0.000) INSERT INTO "messagelog_message" ("contact_id", "connection_id", "direction", "date", "text") VALUES (None, 1, I, 2011-09-08 15:12:50.886324, test); args=(None, 1, 'I', u'2011-09-08 15:12:50.886324', u'test')
+[router]: In <app: messaging> app
+[router]: In <app: scheduler> app
+[router]: In handle phase
+[router]: In <app: handlers> app
+[router]: In <app: ajax> app
+[router]: In <app: default> app
+[router]: In <app: httptester> app
+[router]: In <app: locations> app
+[router]: In <app: messagelog> app
+[router]: In <app: messaging> app
+[router]: In <app: scheduler> app
+[router]: In default phase
+[router]: In <app: handlers> app
+[router]: In <app: ajax> app
+[router]: In <app: default> app
+[router]: In <app: httptester> app
+[router]: In <app: locations> app
+[router]: In <app: messagelog> app
+[router]: In <app: messaging> app
+[router]: In <app: scheduler> app
+[router]: In cleanup phase
+[router]: In <app: handlers> app
+[router]: In <app: ajax> app
+[router]: In <app: default> app
+[router]: In <app: httptester> app
+[router]: In <app: locations> app
+[router]: In <app: messagelog> app
+[router]: In <app: messaging> app
+[router]: In <app: scheduler> app
+[router]: Outgoing (506293 via message_tester): Sorry, RapidSMS could not understand your message.
+[router]: Out outgoing phase
+[router]: Out <app: scheduler> app
+[router]: Out <app: messaging> app
+[router]: Out <app: messagelog> app
+[django.db.backends]: (0.000) INSERT INTO "messagelog_message" ("contact_id", "connection_id", "direction", "date", "text") VALUES (None, 1, O, 2011-09-08 15:12:50.895320, Sorry, RapidSMS could not understand your message.); args=(None, 1, 'O', u'2011-09-08 15:12:50.895320', u'Sorry, RapidSMS could not understand your message.')
+[router]: Out <app: locations> app
+[router]: Out <app: httptester> app
+[router]: Out <app: default> app
+[router]: Out <app: ajax> app
+[router]: Out <app: handlers> app
+[app/ajax]: Response: True
+[app/ajax]: Calling App.ajax_GET_log with args: [{}]
+[app/ajax]: Response: [{'text': u'test', 'direction': 'in', 'identity': u'506293'}, {'text': u'Sorry, RapidSMS could not understand your message.', 'direction': 'out', 'identity': u'506293'}]

@@ -1,0 +1,22 @@
+##############
+# Setting up rapidsms
+##############
+# assumes python and virtualenv and pip installed
+cd ~/nSource
+mkdir rapidsms
+cd rapidsms
+virtualenv --no-site-packages my_rapidsms_env
+source my_rapidsms_env/bin/activate
+pip install rapidsms
+cd ~/nSource/rapidsms
+rapidsms-admin.py startproject paging
+# in PyCharm you will need to enter prefs, add the python interpreter from my_rapidsms_env
+
+# to runserver, PyCharm cannot handle reload server, so just run from the commandline
+
+# setup git flow
+git flow init
+
+
+
+
