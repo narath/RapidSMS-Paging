@@ -14,8 +14,19 @@ rapidsms-admin.py startproject paging
 
 # to runserver, PyCharm cannot handle reload server, so just run from the commandline
 
+# .gitignore
+vim .gitignore
+*.log*
+*.sqlite3
+.idea
+.pyc
+
 # setup git flow
 git flow init
+
+# now we are on develop
+
+
 
 
 

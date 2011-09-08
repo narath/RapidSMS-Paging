@@ -64,6 +64,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.contenttypes",
 
+    # useful 3rd party libraries
+    "south",
+
     # the rapidsms contrib apps.
     "rapidsms.contrib.default",
     "rapidsms.contrib.export",

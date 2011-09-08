@@ -1,4 +1,4 @@
 *.log*
 *.sqlite3
 .idea
-.pyc
+*.pyc
