@@ -1,0 +1,4 @@
+The goal of this project is to implement a functional paging system for hospitals in Africa using the RapidSMS backend.
+A version of this has already been created using Ruby On Rails and Kannel/clickatell/gsm backend.
+
+See http://www.opencellpager.org for more information about the project.
