@@ -44,20 +44,21 @@ INSTALLED_BACKENDS = {
     "message_tester": {
         "ENGINE": "rapidsms.backends.bucket",
     },
-    "twilio": {
-        "ENGINE": "rtwilio.backend",
-        'host': 'localhost', 'port': '8081', # used for spawned backend WSGI server
-        'config': {
-            'encoding' : 'UTF-8',
-            'account_sid': twilio_account_sid,
-            'auth_token': twilio_account_token,
-            'number': twilio_number,
-            #'callback': 'http://<public-django-instance>/twilio/status-callback/', # optional callback URL
-        }
+    "kannel" : {
+        "ENGINE": "rapidsms.backends.kannel",
+        "host": kannel_router_ip,
+        "port": 8081,
+        "sendsms_url": kannel_url,
+        "sendsms_params": {"smsc": "sendsms-user",
+            "from": kannel_from, # not set automatically by SMSC
+            "username": kannel_username,
+            "password": kannel_password
+        },
+        "coding": 0,
+        "charset": "ascii",
+        "encode_errors": "ignore", # strip out unknown (unicode) characters
     }
 }
-
-print INSTALLED_BACKENDS["twilio"]
 
 # to help you get started quickly, many django/rapidsms apps are enabled
 # by default. you may wish to remove some and/or add your own.
@@ -145,7 +146,7 @@ SITE_ID = 1
 
 # the default log settings are very noisy.
 LOG_LEVEL = "DEBUG"
-LOG_FILE = "logs\paging.log"
+LOG_FILE = "rapidsms.log" # todo: move this to logs dir
 LOG_FORMAT = "[%(name)s]: %(message)s"
 LOG_SIZE = 8192  # 8192 bits = 8 kb
 LOG_BACKUPS = 256  # number of logs to keep

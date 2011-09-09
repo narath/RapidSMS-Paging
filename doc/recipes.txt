@@ -31,6 +31,50 @@ cd ~/nSource/rapidsms
 git clone https://github.com/caktus/rapidsms-twilio.git
 cd rapidsms-twilio
 python setup.py install
+# not currently working b/c of Account error
+self.account = twilio.Account(self.config['account_sid'],
+AttributeError: 'module' object has no attribute 'Account'
+
+##### Setup kannel
+# allow vm kannel to accept message from my host
+sshb
+# ssh into my virtual box with kannel installed
+
+#BOXPATH=/usr/local/kannel/sbin
+#PIDFILES=/var/run/kannel
+#CONF=/etc/kannel/kannel.conf
+
+# check to see that it is running
+http://192.168.1.203:13000/status
+
+# check to make sure you can send a test message
+http://192.168.1.203:13013/cgi-bin/sendsms?username=opencellpager&password=PASSWORD&to=+16175551111&text=hello_world
+
+# log files
+sudo tail -f /tmp/kannel.log /tmp/smsbox.log /tmp/modem.log /tmp/access.log
+
+# connect the modem, check it with screen /dev/ttyS0 (remember ^a-k exits)
+screen /dev/ttyS0
+# to reset the modem (if it is failing on CPIN)
+AT+CFUN=1
+
+# check that the process is running
+ps ax | grep kannel
+
+# edit config
+sudo vim /etc/kannel/kannel.conf
+
+# restart kannel
+sudo /etc/init.d/kannel restart
+
+# the best way to check that this is working is to:
+127.0.0.1/admin
+Add a contact e.g. narath
+Add a connection: kannel, your google voice number here
+Then using google voice - send a message to the server with either 'echo' or 'ping'
+if all is working then it will send and receive
+
+
 
 
 
