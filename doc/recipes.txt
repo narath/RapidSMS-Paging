@@ -24,7 +24,13 @@ vim .gitignore
 # setup git flow
 git flow init
 
-# now we are on develop
+# now we are on the develop branch
+
+##### Setup rtwilio
+cd ~/nSource/rapidsms
+git clone https://github.com/caktus/rapidsms-twilio.git
+cd rapidsms-twilio
+python setup.py install
 
 
 

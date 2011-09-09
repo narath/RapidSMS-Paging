@@ -6,6 +6,11 @@
 #                          MAIN CONFIGURATION                          #
 # -------------------------------------------------------------------- #
 
+# Pull in the local changes.
+try:
+    from local_settings import *
+except ImportError:
+    pass
 
 # you should configure your database here before doing any real work.
 # see: http://docs.djangoproject.com/en/dev/ref/settings/#databases
@@ -38,9 +43,21 @@ INSTALLED_BACKENDS = {
     #},
     "message_tester": {
         "ENGINE": "rapidsms.backends.bucket",
+    },
+    "twilio": {
+        "ENGINE": "rtwilio.backend",
+        'host': 'localhost', 'port': '8081', # used for spawned backend WSGI server
+        'config': {
+            'encoding' : 'UTF-8',
+            'account_sid': twilio_account_sid,
+            'auth_token': twilio_account_token,
+            'number': twilio_number,
+            #'callback': 'http://<public-django-instance>/twilio/status-callback/', # optional callback URL
+        }
     }
 }
 
+print INSTALLED_BACKENDS["twilio"]
 
 # to help you get started quickly, many django/rapidsms apps are enabled
 # by default. you may wish to remove some and/or add your own.
@@ -128,7 +145,7 @@ SITE_ID = 1
 
 # the default log settings are very noisy.
 LOG_LEVEL = "DEBUG"
-LOG_FILE = "rapidsms.log"
+LOG_FILE = "logs\paging.log"
 LOG_FORMAT = "[%(name)s]: %(message)s"
 LOG_SIZE = 8192  # 8192 bits = 8 kb
 LOG_BACKUPS = 256  # number of logs to keep
